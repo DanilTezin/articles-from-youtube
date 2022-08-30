@@ -1,10 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { ITag, ITags } from "../../interfaces/models"
+import { ITag, ITags, IKeywords } from '../../interfaces/models';
 
 const SS_TAG_KEY = 'stk'
 
-export const initialState: ITags ={
-   tags: []
+interface StateProps extends ITags, IKeywords{
+    tags: Array<ITag>
+    keywords: string
+}
+
+export const initialState: StateProps ={
+    tags: [],
+    keywords: ''
 }
 
 export const fromyoutubeSlice = createSlice({
@@ -16,6 +22,9 @@ export const fromyoutubeSlice = createSlice({
         },
         removeFavorite(state, action: PayloadAction<ITag>){
             state.tags = state.tags.filter(f=> f.text !== action.payload.text)
+        },
+        addKeywords(state, action: PayloadAction<string>){
+            state.keywords = state.keywords += action.payload
         }
     }
 })

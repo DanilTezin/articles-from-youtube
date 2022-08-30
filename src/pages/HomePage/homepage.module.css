@@ -5,6 +5,12 @@
     justify-content: center;
     align-content: center;
     display: flex;
+    gap: 30px;
+}
+
+section{
+    display: flex;
     flex-direction: column;
+    height: 400px;
     gap: 30px;
 }

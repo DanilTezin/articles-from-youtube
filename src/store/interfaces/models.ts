@@ -6,3 +6,8 @@ export interface ITag{
 export interface ITags{
     tags: ITag[]
 }
+
+export interface IKeywords{
+    keywords: string
+}
+
