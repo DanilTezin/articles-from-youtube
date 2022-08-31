@@ -1,0 +1,17 @@
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import styles from './header.module.css'
+
+const Header: FC = () =>{
+    return(
+        <header className={styles.header}>
+            <h2>Articles from youtube</h2>
+            <nav>
+                <Link className={styles.link} to="/">Главная</Link>
+                <Link className={styles.link} to="/articles">Статьи</Link>
+            </nav>
+        </header> 
+    )
+}
+
+export default Header

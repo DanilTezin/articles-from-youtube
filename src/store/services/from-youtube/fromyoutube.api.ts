@@ -9,7 +9,8 @@ export const fromyoutubeApi = createApi({
     }),
     
     endpoints: (builder)=>({
-        postFromyoutube: builder.query<ITag[], any>({
+
+        postTags: builder.query<ITag[], any>({
             query: (tags: []) =>({
                 url: '',
                 params:{
@@ -17,10 +18,19 @@ export const fromyoutubeApi = createApi({
                 }
             }),
             // transformResponse: (response: ) => response.items
+        }),
 
-        })
+        postKeywords: builder.query<string, any>({
+            query: (keywords: string)=>({
+                url: '',
+                params:{
+                    q:keywords
+                }
+            })
+        }),
+        
     })
 
 })
 
-export const {useLazyPostFromyoutubeQuery, usePostFromyoutubeQuery} = fromyoutubeApi
+export const {usePostTagsQuery, useLazyPostTagsQuery, useLazyPostKeywordsQuery, usePostKeywordsQuery} = fromyoutubeApi

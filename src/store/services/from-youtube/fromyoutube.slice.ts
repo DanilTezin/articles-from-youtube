@@ -8,6 +8,9 @@ interface StateProps extends ITags, IKeywords{
     keywords: string
 }
 
+
+
+
 export const initialState: StateProps ={
     tags: [],
     keywords: ''
@@ -25,6 +28,12 @@ export const fromyoutubeSlice = createSlice({
         },
         addKeywords(state, action: PayloadAction<string>){
             state.keywords = state.keywords += action.payload
+        },
+        removeKeyword(state, action: PayloadAction<string>){
+            state.keywords = ''
+        },
+        saveLocalTags(state, action: PayloadAction<any>){
+            localStorage.setItem(SS_TAG_KEY, JSON.stringify(state.tags))
         }
     }
 })

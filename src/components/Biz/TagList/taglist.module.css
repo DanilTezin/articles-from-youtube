@@ -1,10 +1,12 @@
 .wrappUl{
     width: 500px;
     min-height: 200px;
+    max-height: 200px;
     border: 1px solid rgb(226, 226, 226);
     border-radius: 5px;
     background-color: rgb(252, 252, 252);
     padding: 10px;
+    overflow-y: scroll;
 }
 
 .content{

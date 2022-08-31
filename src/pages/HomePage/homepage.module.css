@@ -13,4 +13,9 @@ section{
     flex-direction: column;
     height: 400px;
     gap: 30px;
+    max-width: 550px;
+}
+
+.wrapBtn{
+    display: flex;
 }
