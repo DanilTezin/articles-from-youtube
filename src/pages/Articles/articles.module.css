@@ -1,0 +1,17 @@
+
+h1{
+    padding: 0;
+    color: whitesmoke; 
+    margin: 0;
+    font-size: 22px;
+    margin-left: 40px;
+}
+.header{
+    background-color: rgb(112, 112, 112);
+    height: 60px;
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center ;
+    width: 100%;
+}
