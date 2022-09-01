@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { ITag, ITags, IKeywords } from '../../interfaces/models';
+import { ITag, ITags } from '../../interfaces/models';
 
 const SS_TAG_KEY = 'stk'
 
-interface StateProps extends ITags, IKeywords{
+interface StateProps extends ITags{
     tags: Array<ITag>
     keywords: string
 }
@@ -32,7 +32,7 @@ export const fromyoutubeSlice = createSlice({
         removeKeyword(state, action: PayloadAction<string>){
             state.keywords = ''
         },
-        saveLocalTags(state, action: PayloadAction<any>){
+        saveLocalTags(state, action: PayloadAction){
             localStorage.setItem(SS_TAG_KEY, JSON.stringify(state.tags))
         }
     }

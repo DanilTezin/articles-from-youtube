@@ -8,6 +8,8 @@ import Button from '../../components/UI/Button/Buttom'
 import Input from '../../components/UI/Input/Input'
 import KeywordsList from '../../components/Biz/KeywordsList/KeywordsList'
 import Paragraph from '../../components/UI/Paragraph/Paragraph';
+import Alert from '../../components/UI/Alert/Alert';
+import useAlert from '../../hooks/useAlert';
 
 
 const HomePage = () =>{
@@ -17,12 +19,16 @@ const HomePage = () =>{
 
     const [keyword, setKeywords] = useState<string>('')
     const [tag, setTag] = useState<ITag>({text: ''})
+    const [alert, setAlert, hiddeAlert] = useAlert(10000)
 
     const handleInputTag = (event: ChangeEvent<HTMLInputElement>) => setTag({text: event.target.value})
     const handleInputKeywords = (event: ChangeEvent<HTMLInputElement>) => setKeywords(event.target.value)
 
 
     const deleteKeyword = ()=> removeKeyword('')
+    const localSaveTag = ()=> saveLocalTags()
+
+  
 
     const addTag = ()=>{
         addFavorite(tag)
@@ -34,14 +40,9 @@ const HomePage = () =>{
         setKeywords('')
     }
 
-    const localSaveTag = ()=>{
-        saveLocalTags(null)
-    }
-
-
-
     return(   
         <div className={styles.content}>
+
             <section>
                 <Input onChange={handleInputTag} value={tag.text} name='tag' label='Имя тега'/>
                 <div className={styles.wrapBtn}>
@@ -61,6 +62,17 @@ const HomePage = () =>{
                 <KeywordsList keywords={keywords}/>
                 <Paragraph header='Пример - ' text='"Постройка, кирпич, цемент, воронка"'/>
             </section>
+
+            <section className={styles.articles}>
+                <Paragraph header='Создать ' text='статью'/>
+                <Button onClick={setAlert} text='Создать' name='create-article'/>
+            </section>
+
+            {alert ?
+                tags.length === 0 || keywords === '' ? 
+                 <Alert type={"error"} click={hiddeAlert} text="Не все поля заполнены"/> : 
+                 <Alert type={"success"} click={hiddeAlert} text="Отправляем запрос на создание статьи..."/> : null
+            }
         </div>
     )
 }
