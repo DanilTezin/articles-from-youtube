@@ -13,11 +13,7 @@ const KeywordsList: FC<PropsKeywords> = ({keywords, ...rest}) =>{
         <p>Список ключевых слов</p>
 
         <div className={styles.wrappUl}>
-            {keywords &&
-                <>
-                    {keywords}
-                </>
-            }
+            {keywords &&<>{keywords}</>}
         </div>
       </div>
 

@@ -1,26 +1,35 @@
 import React, { FC, useEffect } from "react";
+import { useAction } from "../../../hooks/actions";
 import styles from './alert.module.css'
 
-type typeColor = 'success' | 'error'     
 
-interface AlertProps{
+export type typeColor = 'success' | 'error'     
+
+export interface AlertProps{
+    key?: number
     type: typeColor
     text: string
+    time: number
     click?: React.MouseEventHandler
 }
 
-const Alert :FC<AlertProps> = ({text, type, click, ...rest}) =>{
+const Alert :FC<AlertProps> = ({text, type, key, time}) =>{
+    const {removeAlert} = useAction()
+    
+  
 
     useEffect(()=>{
-        console.log("OK")
-    }, [])
+        setTimeout(()=>{
+            removeAlert()
+        } , time)
+    })
+    
 
     return(
         <div
-         style={{backgroundColor: `${type === 'success' ? '#3fbf61' : '#bf3f3f'}`}}
          className={styles.content}>
             <p>{text}</p>
-            <span onClick={click}>X</span>
+            <span onClick={()=>removeAlert()}>X</span>
         </div>
     )
 }

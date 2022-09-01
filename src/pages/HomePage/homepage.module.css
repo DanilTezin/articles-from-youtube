@@ -28,4 +28,32 @@ section{
 
 .wrapBtn{
     display: flex;
+    
 }
+
+
+
+.alerts{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 30px;
+}
+
+
+.alerts-enter {
+    opacity: 0;
+  }
+  .alerts-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  .alerts-exit {
+    opacity: 1;
+  }
+  .alerts-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+  }
+  

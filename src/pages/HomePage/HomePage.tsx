@@ -9,17 +9,16 @@ import Input from '../../components/UI/Input/Input'
 import KeywordsList from '../../components/Biz/KeywordsList/KeywordsList'
 import Paragraph from '../../components/UI/Paragraph/Paragraph';
 import Alert from '../../components/UI/Alert/Alert';
-import useAlert from '../../hooks/useAlert';
+
 
 
 const HomePage = () =>{
 
-    const {addFavorite, addKeywords, removeKeyword, saveLocalTags} = useAction()
-    const {tags, keywords} = useAppSelector(state => state.fromyoutube)
+    const {addFavorite, addKeywords, removeKeyword, saveLocalTags, addAlert} = useAction()
+    const {tags, keywords, countAlert} = useAppSelector(state => state.fromyoutube)
 
     const [keyword, setKeywords] = useState<string>('')
     const [tag, setTag] = useState<ITag>({text: ''})
-    const [alert, setAlert, hiddeAlert] = useAlert(10000)
 
     const handleInputTag = (event: ChangeEvent<HTMLInputElement>) => setTag({text: event.target.value})
     const handleInputKeywords = (event: ChangeEvent<HTMLInputElement>) => setKeywords(event.target.value)
@@ -38,6 +37,19 @@ const HomePage = () =>{
     const addKeyword = ()=>{
         addKeywords(keyword)
         setKeywords('')
+    }
+
+    const pushData =() =>{
+        addAlert( tags.length === 0 || keywords === '' ?
+            {   
+                type: 'error',
+                text: 'Не все данные заполнены'
+            } : 
+            {   
+                type: 'success',
+                text: 'Отправка на сервер'
+            }
+            )
     }
 
     return(   
@@ -65,14 +77,20 @@ const HomePage = () =>{
 
             <section className={styles.articles}>
                 <Paragraph header='Создать ' text='статью'/>
-                <Button onClick={setAlert} text='Создать' name='create-article'/>
+                <Button onClick={pushData} text='Создать' name='create-article'/>
             </section>
 
-            {alert ?
-                tags.length === 0 || keywords === '' ? 
-                 <Alert type={"error"} click={hiddeAlert} text="Не все поля заполнены"/> : 
-                 <Alert type={"success"} click={hiddeAlert} text="Отправляем запрос на создание статьи..."/> : null
-            }
+            <div className={styles.alerts}>
+                {countAlert ?
+
+                    countAlert.map((type, index) =>{
+                        return <Alert key={index} type={type.type} time={5000} text={type.text}/> 
+                    }) : null
+
+                    // tags.length === 0 || keywords === ''
+                }
+            </div>
+
         </div>
     )
 }

@@ -1,22 +1,29 @@
 .content{
     border-radius: 5px;
-    position:absolute;
     top:20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 1s ease;
-    animation: start 0.2s forwards linear;
+ 
 }
 .content p{
     color:aliceblue;
     margin: 0;
     padding: 10px 20px;
+    cursor: pointer;
 }
 
 .content span{
     color:aliceblue;
     margin-right: 15px;
+    cursor: pointer;
+    padding:0px 5px;
+    border-radius:7px;
+    transition: background-color 0.3s;
+}
+
+.content span:hover{
+    background-color:rgba(255, 255, 255, 0.192);
 }
 
 @keyframes start{
@@ -24,8 +31,11 @@
         opacity: 0;
         top: 0
     }
-    100%{
+    20%{
         opacity:1;  
         top: 20px
+    }
+    100%{
+        opacity: 0
     }
 }
