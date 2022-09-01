@@ -1,14 +1,42 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { ITags } from "../../interfaces/models"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { ITag, ITags, IKeywords } from '../../interfaces/models';
+
+const SS_TAG_KEY = 'stk'
+
+interface StateProps extends ITags, IKeywords{
+    tags: Array<ITag>
+    keywords: string
+}
 
 
 
-export const initialState: ITags ={
-   tags: []
+
+export const initialState: StateProps ={
+    tags: [],
+    keywords: ''
 }
 
 export const fromyoutubeSlice = createSlice({
     name: 'fromyoutube',
     initialState,
-    reducers: {}
+    reducers: {
+        addFavorite(state, action: PayloadAction<ITag>){
+            state.tags.push(action.payload)
+        },
+        removeFavorite(state, action: PayloadAction<ITag>){
+            state.tags = state.tags.filter(f=> f.text !== action.payload.text)
+        },
+        addKeywords(state, action: PayloadAction<string>){
+            state.keywords = state.keywords += action.payload
+        },
+        removeKeyword(state, action: PayloadAction<string>){
+            state.keywords = ''
+        },
+        saveLocalTags(state, action: PayloadAction<any>){
+            localStorage.setItem(SS_TAG_KEY, JSON.stringify(state.tags))
+        }
+    }
 })
+
+export const fromyoutubeActions = fromyoutubeSlice.actions
+export const fromyoutubeReducer = fromyoutubeSlice.reducer

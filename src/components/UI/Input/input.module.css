@@ -1,0 +1,23 @@
+.inputWrapper{
+    display: flex;
+    width: fit-content;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 500px;
+    min-width: 100px;
+}
+
+.inputWrapper input{
+    font-size: 18px;
+    margin-top: 15px;
+    width: 230px;
+    border-radius: 5px;
+    border: 1px solid rgb(223, 223, 223);
+    padding: 10px 10px 10px 10px;
+}
+
+.inputWrapper label{
+    font-size: 20px;
+    font-weight: 300;
+}

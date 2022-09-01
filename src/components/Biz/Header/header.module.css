@@ -1,0 +1,17 @@
+header{
+    display:flex;
+    align-items:center;
+    padding: 6px 40px;
+    background-color:rgb(63, 63, 63);
+    color:#fff
+}
+nav{
+    padding-left: 70%;
+    display: flex;
+    gap: 30px;
+}
+
+.link{
+    text-decoration: none;
+    color:#fff
+}
