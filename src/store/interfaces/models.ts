@@ -7,7 +7,11 @@ export interface ITags{
     tags: ITag[]
 }
 
-export interface IKeywords{
-    keywords: string
-}
 
+
+export interface IArticle{
+    id?: string
+    author: string
+    header: string
+    text: string
+}

@@ -1,0 +1,31 @@
+.content{
+    border-radius: 5px;
+    position:absolute;
+    top:20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease;
+    animation: start 0.2s forwards linear;
+}
+.content p{
+    color:aliceblue;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.content span{
+    color:aliceblue;
+    margin-right: 15px;
+}
+
+@keyframes start{
+    0%{
+        opacity: 0;
+        top: 0
+    }
+    100%{
+        opacity:1;  
+        top: 20px
+    }
+}

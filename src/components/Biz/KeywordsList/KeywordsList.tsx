@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { ITag, IKeywords } from '../../../store/interfaces/models';
 import styles from './keywords.module.css'
 
 
