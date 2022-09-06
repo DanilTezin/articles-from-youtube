@@ -3,10 +3,13 @@ header{
     align-items:center;
     padding: 6px 40px;
     background-color:rgb(63, 63, 63);
-    color:#fff
+    color:#fff;
+    justify-content:space-between;
+    user-select: none;
 }
+
+
 nav{
-    padding-left: 70%;
     display: flex;
     gap: 30px;
 }
@@ -15,3 +18,19 @@ nav{
     text-decoration: none;
     color:#fff
 }
+
+@media only screen and (max-width: 420px) {
+    nav{
+        font-size: 15px;
+        gap: 15px;
+    }
+    header{
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    h2{
+        font-size:18px;
+        margin-bottom: 40px;
+    }
+}
+

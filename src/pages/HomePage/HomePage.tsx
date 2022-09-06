@@ -8,18 +8,16 @@ import Button from '../../components/UI/Button/Buttom'
 import Input from '../../components/UI/Input/Input'
 import KeywordsList from '../../components/Biz/KeywordsList/KeywordsList'
 import Paragraph from '../../components/UI/Paragraph/Paragraph';
-import Alert from '../../components/UI/Alert/Alert';
-import useAlert from '../../hooks/useAlert';
+
 
 
 const HomePage = () =>{
 
-    const {addFavorite, addKeywords, removeKeyword, saveLocalTags} = useAction()
+    const {addFavorite, addKeywords, removeKeyword, saveLocalTags, addAlert} = useAction()
     const {tags, keywords} = useAppSelector(state => state.fromyoutube)
 
     const [keyword, setKeywords] = useState<string>('')
     const [tag, setTag] = useState<ITag>({text: ''})
-    const [alert, setAlert, hiddeAlert] = useAlert(10000)
 
     const handleInputTag = (event: ChangeEvent<HTMLInputElement>) => setTag({text: event.target.value})
     const handleInputKeywords = (event: ChangeEvent<HTMLInputElement>) => setKeywords(event.target.value)
@@ -40,39 +38,51 @@ const HomePage = () =>{
         setKeywords('')
     }
 
+    const pushData =() =>{
+        addAlert( tags.length === 0 || keywords === '' ?
+            {   
+                type: 'error',
+                text: 'Не все данные заполнены'
+            } : 
+            {   
+                type: 'success',
+                text: 'Отправка на сервер'
+            }
+            )
+    }
+
     return(   
         <div className={styles.content}>
 
             <section>
-                <Input onChange={handleInputTag} value={tag.text} name='tag' label='Имя тега'/>
+                <Input placeholder="tags" onChange={handleInputTag} value={tag.text} name='tag' label='Имя тега'/>
                 <div className={styles.wrapBtn}>
                     <Button onClick={addTag} color='red' name='pushtag' text='Добавить тег'/>
                     <Button onClick={localSaveTag} color='red' name='pushtag' text='Сохранить локально'/>
                 </div>
                 <TagList tags={tags}/>
-                <Paragraph header='Пример - ' text='"Дом"'/>
             </section>
 
             <section>
-                <Input onChange={handleInputKeywords} value={keyword} name='tag' label='Ключивые слова'/>
+                <Input placeholder="keywords" onChange={handleInputKeywords} value={keyword} name='tag' label='Ключивые слова'/>
                 <div className={styles.wrapBtn}>
                     <Button onClick={addKeyword} color='red' name='pushtag' text='Добавить список'/>
                     <Button onClick={deleteKeyword} color='red' name='pushtag' text='Отчистить список'/>
                 </div>
                 <KeywordsList keywords={keywords}/>
-                <Paragraph header='Пример - ' text='"Постройка, кирпич, цемент, воронка"'/>
             </section>
 
-            <section className={styles.articles}>
-                <Paragraph header='Создать ' text='статью'/>
-                <Button onClick={setAlert} text='Создать' name='create-article'/>
+            <section className={styles.wrappCreateArticle}>
+                <div className={styles.articles}>
+                    <Paragraph header='Создать ' text='статью'/>
+                    <Button onClick={pushData} text='Создать' name='create-article'/>
+                </div>
             </section>
 
-            {alert ?
-                tags.length === 0 || keywords === '' ? 
-                 <Alert type={"error"} click={hiddeAlert} text="Не все поля заполнены"/> : 
-                 <Alert type={"success"} click={hiddeAlert} text="Отправляем запрос на создание статьи..."/> : null
-            }
+            <div className={styles.alerts}>
+               
+            </div>
+
         </div>
     )
 }

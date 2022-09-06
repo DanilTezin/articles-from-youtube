@@ -1,36 +1,45 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ITag } from '../../interfaces/models'
+
+interface ILink{
+    link: string
+}
 
 export const fromyoutubeApi = createApi({
-    reducerPath: '',
+
+    reducerPath: 'youtube/api',
 
     baseQuery: fetchBaseQuery({
-        baseUrl: ''
+        baseUrl: 'http://192.168.0.11:8000',
+        mode: "cors",
+        prepareHeaders: (headers: any) => {
+            headers.set('Access-Control-Allow-Origin', '*');
+            headers.set('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+            headers.set('Access-Control-Allow-Headers', 'Content-Type');
+            return headers 
+        }
     }),
+
     
+    
+
     endpoints: (builder)=>({
 
-        postTags: builder.query<ITag[], any>({
-            query: (tags: []) =>({
-                url: '',
+        linkArticle: builder.mutation<ILink, any>({
+            
+            query: (link: string) =>({
+                url: 'generate_articles_by_link',
                 params:{
-                    q:tags
-                }
+                    link: link
+                },
+                method: "POST",
+                mode: 'no-cors'
             }),
             // transformResponse: (response: ) => response.items
         }),
 
-        postKeywords: builder.query<string, any>({
-            query: (keywords: string)=>({
-                url: '',
-                params:{
-                    q:keywords
-                }
-            })
-        }),
         
     })
 
 })
 
-export const {usePostTagsQuery, useLazyPostTagsQuery, useLazyPostKeywordsQuery, usePostKeywordsQuery} = fromyoutubeApi
+export const {useLinkArticleMutation} = fromyoutubeApi

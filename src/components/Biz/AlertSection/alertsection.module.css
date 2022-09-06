@@ -1,0 +1,7 @@
+.alerts{
+    position: fixed;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    top: 30px;
+}

@@ -8,6 +8,8 @@ const Header: FC = () =>{
             <h2>Articles from youtube App</h2>
             <nav>
                 <Link className={styles.link} to="/">Главная</Link>
+                <Link className={styles.link} to="/loadvideo">Загрузить видео</Link>
+                <Link className={styles.link} to="/articlelink">По ссылке</Link>
                 <Link className={styles.link} to="/articles">Статьи</Link>
             </nav>
         </header> 
