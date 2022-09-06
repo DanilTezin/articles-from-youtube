@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from './articles.module.css'
 
 
-const Articles: FC = () =>{
+const ArticlesPage: FC = () =>{
     return(
         <div>
             <div className={styles.header}>
@@ -12,4 +12,4 @@ const Articles: FC = () =>{
     )
 }
 
-export default Articles
+export default ArticlesPage

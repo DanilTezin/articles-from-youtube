@@ -2,8 +2,11 @@
     border-radius: 5px;
     top:20px;
     display: flex;
+    position:sticky;
     align-items: center;
     justify-content: center;
+    user-select: none;
+    opacity: 0.9;
  
 }
 .content p{
@@ -24,18 +27,4 @@
 
 .content span:hover{
     background-color:rgba(255, 255, 255, 0.192);
-}
-
-@keyframes start{
-    0%{
-        opacity: 0;
-        top: 0
-    }
-    20%{
-        opacity:1;  
-        top: 20px
-    }
-    100%{
-        opacity: 0
-    }
 }

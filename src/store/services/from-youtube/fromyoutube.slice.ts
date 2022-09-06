@@ -1,19 +1,21 @@
-import { IAlert } from './../../interfaces/models';
+import { IAlert, IArticle } from './../../interfaces/models';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { ITag, ITags } from '../../interfaces/models';
 
 const SS_TAG_KEY = 'stk'
 
 interface StateProps extends ITags{
-    tags: Array<ITag>
     keywords: string
+    tags: ITag[]
     countAlert: IAlert[]
+    articles: IArticle[],
 }
 
 export const initialState: StateProps ={
-    tags: [],
     keywords: '',
-    countAlert: []
+    tags: [],
+    countAlert: [],
+    articles: [],
 }
 
 
@@ -22,13 +24,19 @@ export const fromyoutubeSlice = createSlice({
     initialState,
     reducers: {
         addFavorite(state, action: PayloadAction<ITag>){
-            state.tags.push(action.payload)
+            if(action.payload.text !== ""){
+                state.tags.push(action.payload)
+            }
         },
         removeFavorite(state, action: PayloadAction<ITag>){
             state.tags = state.tags.filter(f=> f.text !== action.payload.text)
         },
         addKeywords(state, action: PayloadAction<string>){
-            state.keywords = state.keywords += action.payload
+            if(action.payload !== ""){
+                state.keywords = state.keywords += action.payload
+            }else{
+                state.keywords = ''
+            }
         },
         removeKeyword(state, action: PayloadAction<string>){
             state.keywords = ''
@@ -41,7 +49,9 @@ export const fromyoutubeSlice = createSlice({
         },
         removeAlert(state, action: PayloadAction){
             state.countAlert.shift()
-        }
+        },
+
+
     }
 })
 
