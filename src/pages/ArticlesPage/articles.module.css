@@ -16,3 +16,11 @@ h1{
     justify-content: flex-start;
     align-items: center ;
 }
+
+@media only screen and (max-width: 420px) {
+ 
+    .title{
+        font-size: 15px;
+    }
+}
+

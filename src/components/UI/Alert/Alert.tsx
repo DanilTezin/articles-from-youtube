@@ -27,7 +27,7 @@ const Alert :FC<AlertProps> = ({text, type, key, time}) =>{
 
     return(
         <div
-         style={{backgroundColor: `${type === 'success' ? '#79ce8c' : '#d14b4b'}`}}
+         style={{backgroundColor: `${type === 'success' ? '#55efc4' : '#F44336'}`}}
          className={styles.content}>
             <p>{text}</p>
             <span onClick={()=>removeAlert()}>X</span>
