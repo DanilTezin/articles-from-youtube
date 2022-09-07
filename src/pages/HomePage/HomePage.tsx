@@ -55,7 +55,7 @@ const HomePage = () =>{
         <div className={styles.content}>
 
             <section>
-                <Input placeholder="tags" onChange={handleInputTag} value={tag.text} name='tag' label='Имя тега'/>
+                <Input placeholder="Tag" onChange={handleInputTag} value={tag.text} name='tag' label='Имя тега'/>
                 <div className={styles.wrapBtn}>
                     <Button onClick={addTag} color='red' name='pushtag' text='Добавить тег'/>
                     <Button onClick={localSaveTag} color='red' name='pushtag' text='Сохранить локально'/>
@@ -64,7 +64,7 @@ const HomePage = () =>{
             </section>
 
             <section>
-                <Input placeholder="keywords" onChange={handleInputKeywords} value={keyword} name='tag' label='Ключивые слова'/>
+                <Input placeholder="Keywords" onChange={handleInputKeywords} value={keyword} name='tag' label='Ключивые слова'/>
                 <div className={styles.wrapBtn}>
                     <Button onClick={addKeyword} color='red' name='pushtag' text='Добавить список'/>
                     <Button onClick={deleteKeyword} color='red' name='pushtag' text='Отчистить список'/>

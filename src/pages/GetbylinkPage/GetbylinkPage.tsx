@@ -1,15 +1,33 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import Button from "../../components/UI/Button/Buttom";
 import Input from "../../components/UI/Input/Input";
+import Loader from "../../components/UI/Loader/Loader";
 import { useAction } from "../../hooks/actions";
 import { useLinkArticleMutation } from "../../store/services/from-youtube/fromyoutube.api";
 import styles from './getbylinkpage.module.css'
+
+
+
+
+const ErrorPost:FC = () =>{
+    const {addAlert} = useAction();
+
+    useEffect(()=>{
+        addAlert({
+            type: 'error',
+            text: "Ошибка, не отправлен на сервер",
+        })
+    })
+
+    return <></>
+}
+
 
 const GetbylinkPage: FC = () =>{
     
     const [link, setLink] = useState('');
     const {addAlert} = useAction();
-    const [pushlink,{isLoading, isError, data}] = useLinkArticleMutation()
+    const [pushlink,{isLoading, isError}] = useLinkArticleMutation()
 
     const handleLinkInput = (e: ChangeEvent<HTMLInputElement>)=>{
         setLink(e.target.value.toString())
@@ -34,6 +52,7 @@ const GetbylinkPage: FC = () =>{
     }
 
 
+
     return(
         <div>
             <div className={styles.header}>
@@ -44,6 +63,9 @@ const GetbylinkPage: FC = () =>{
                 <Input onChange={handleLinkInput} value={link} name="Получить статью по ссылке" label="Ссылка на видео"/>
                 <Button onClick={getArticle} name="pushlik" text="Получить статью"/>
             </div>
+
+            {isLoading && <Loader/>}
+            {isError && <ErrorPost/> }
         </div>
     )
 }

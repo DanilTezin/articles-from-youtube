@@ -13,7 +13,7 @@ const AlertSection :FC = () =>{
         <div className={styles.alerts}>
              {countAlert ?
                 countAlert.map((type, index) =>{
-                    return <Alert key={index} type={type.type} time={100000} text={type.text}/> 
+                    return <Alert key={index} type={type.type} time={2000} text={type.text}/> 
                 }) : null
             }
         </div>
