@@ -8,6 +8,7 @@ import Button from '../../components/UI/Button/Buttom'
 import Input from '../../components/UI/Input/Input'
 import KeywordsList from '../../components/Biz/KeywordsList/KeywordsList'
 import Paragraph from '../../components/UI/Paragraph/Paragraph';
+import Subtitle from '../../components/UI/Subtitle/Subtitle';
 
 
 
@@ -51,39 +52,46 @@ const HomePage = () =>{
             )
     }
 
-    return(   
-        <div className={styles.content}>
+    return( 
+        <>
+            <Subtitle name="Главная"/>
+            <div className={styles.content}>
+                <section>
+                    <div className={styles.wrappInputs}>
+                        <Input placeholder="Tag" onChange={handleInputTag} value={tag.text} name='tag' label='Имя тега'/>
+                        <div className={styles.wrapBtn}>
+                            <Button onClick={addTag} color='red' name='pushtag' text='Добавить тег'/>
+                            <Button onClick={localSaveTag} color='red' name='pushtag' text='Сохранить локально'/>
+                        </div>
+                    </div>
+                    <TagList tags={tags}/>
+                </section>
 
-            <section>
-                <Input placeholder="Tag" onChange={handleInputTag} value={tag.text} name='tag' label='Имя тега'/>
-                <div className={styles.wrapBtn}>
-                    <Button onClick={addTag} color='red' name='pushtag' text='Добавить тег'/>
-                    <Button onClick={localSaveTag} color='red' name='pushtag' text='Сохранить локально'/>
+                <section>
+                    <div className={styles.wrappInputs}>
+                        <Input placeholder="Keywords" onChange={handleInputKeywords} value={keyword} name='tag' label='Ключивые слова'/>
+                        <div className={styles.wrapBtn}>
+                            <Button onClick={addKeyword} color='red' name='pushtag' text='Добавить список'/>
+                            <Button onClick={deleteKeyword} color='red' name='pushtag' text='Отчистить список'/>
+                    </div>
+                    </div>
+                    <KeywordsList keywords={keywords}/>
+                </section>
+
+                <section className={styles.wrappCreateArticle}>
+                    <div className={styles.articles}>
+                        <Paragraph header='Создать ' text='статью'/>
+                        <Button onClick={pushData} text='Создать' name='create-article'/>
+                    </div>
+                </section>
+
+                <div className={styles.alerts}>
+                
                 </div>
-                <TagList tags={tags}/>
-            </section>
 
-            <section>
-                <Input placeholder="Keywords" onChange={handleInputKeywords} value={keyword} name='tag' label='Ключивые слова'/>
-                <div className={styles.wrapBtn}>
-                    <Button onClick={addKeyword} color='red' name='pushtag' text='Добавить список'/>
-                    <Button onClick={deleteKeyword} color='red' name='pushtag' text='Отчистить список'/>
-                </div>
-                <KeywordsList keywords={keywords}/>
-            </section>
-
-            <section className={styles.wrappCreateArticle}>
-                <div className={styles.articles}>
-                    <Paragraph header='Создать ' text='статью'/>
-                    <Button onClick={pushData} text='Создать' name='create-article'/>
-                </div>
-            </section>
-
-            <div className={styles.alerts}>
-               
             </div>
+        </>  
 
-        </div>
     )
 }
 

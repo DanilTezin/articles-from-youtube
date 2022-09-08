@@ -2,7 +2,7 @@ header{
     display:flex;
     align-items:center;
     padding: 6px 40px;
-    background-color:rgb(63, 63, 63);
+    background-color: #222f3e;
     color:#fff;
     justify-content:space-between;
     user-select: none;
