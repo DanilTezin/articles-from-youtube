@@ -6,6 +6,7 @@
     align-content: center;
     display: flex;
     gap: 30px;
+    
 }
 
 section{
@@ -14,6 +15,11 @@ section{
     height: 400px;
     gap: 30px;
     max-width: 550px;
+}
+.wrappInputs{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .articles{

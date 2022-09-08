@@ -1,14 +1,13 @@
 import { FC } from "react";
 import Upload from "../../components/Biz/Upload/Upload";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import styles from './loadvideo.module.css'
 
 
 const LoadvidePage: FC = () =>{
     return(
         <div>
-            <div className={styles.header}>
-                <h1 className={styles.title}>Загрузить видео</h1>
-            </div>
+            <Subtitle name="Загрузить видео"/>
 
             <div className={styles.content}>
                 <Upload/>

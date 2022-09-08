@@ -1,13 +1,11 @@
 import { FC } from "react";
-import styles from './articles.module.css'
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
 
 
 const ArticlesPage: FC = () =>{
     return(
         <div>
-            <div className={styles.header}>
-                <h1 className={styles.title}>Статьи</h1>
-            </div>
+            <Subtitle name="Статьи"/>
         </div>
     )
 }

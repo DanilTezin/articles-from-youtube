@@ -2,6 +2,7 @@ import { ChangeEvent, FC, useEffect, useState } from "react";
 import Button from "../../components/UI/Button/Buttom";
 import Input from "../../components/UI/Input/Input";
 import Loader from "../../components/UI/Loader/Loader";
+import Subtitle from "../../components/UI/Subtitle/Subtitle";
 import { useAction } from "../../hooks/actions";
 import { useLinkArticleMutation } from "../../store/services/from-youtube/fromyoutube.api";
 import styles from './getbylinkpage.module.css'
@@ -55,9 +56,8 @@ const GetbylinkPage: FC = () =>{
 
     return(
         <div>
-            <div className={styles.header}>
-                <h1 className={styles.title}>Получить статью по ссылке на видео</h1>
-            </div>
+            <Subtitle name="Получить статью по ссылке на видео"/>
+
 
             <div className={styles.content}>
                 <Input onChange={handleLinkInput} value={link} name="Получить статью по ссылке" label="Ссылка на видео"/>
