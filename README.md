@@ -1,6 +1,6 @@
 
 # Генерация СЕО статей из видео
-
+https://daniltezin.github.io/articles-from-youtube/
 
 #### Создание с помощью -
 - Видефайла
