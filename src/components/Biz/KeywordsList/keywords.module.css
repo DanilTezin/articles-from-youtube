@@ -5,7 +5,8 @@
     border-radius: 5px;
     text-align: start;
     padding: 10px;
-    background-color: rgb(252, 252, 252);
+    background-color: #E2E8F0;
+
 }
 
 .content{
@@ -15,6 +16,12 @@
     align-items: flex-start;
     font-size: 20px;
     font-weight: 300;
+}
+
+p{
+    color: aliceblue;
+    font-weight: 500;
+
 }
 
 @media only screen and (max-width: 420px) {

@@ -11,7 +11,7 @@ const Tag = ({tag}: {tag: ITag}) =>{
 
     return(
         <div style={{display: "flex", alignItems: "center", textAlign: "center", height: '40px'}} key={tag.id}>
-            <p style={{width: "100%", height: '30px',backgroundColor: '#f2f2f2', alignItems: 'center', display: 'flex'}}>
+            <p style={{width: "100%",color:'black', height: '30px',backgroundColor: '#f2f2f2', alignItems: 'center', display: 'flex'}}>
                 {tag.text}
             </p>
             <button
