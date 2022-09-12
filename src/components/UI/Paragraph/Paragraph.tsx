@@ -10,7 +10,7 @@ const Paragraph: FC<ParagraphProps> = ({header, text, ...rest}) =>{
 
     return(
 
-        <p className={styles.p} {...rest}>
+        <p className={styles.pan} {...rest}>
             <span>
                 {header}
             </span>

@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { fromyoutubeApi } from "./services/from-youtube/fromyoutube.api";
 import { fromyoutubeReducer } from "./services/from-youtube/fromyoutube.slice";
 

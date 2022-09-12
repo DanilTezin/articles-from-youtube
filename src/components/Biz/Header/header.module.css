@@ -2,7 +2,7 @@ header{
     display:flex;
     align-items:center;
     padding: 6px 40px;
-    background-color: #222f3e;
+    background-color: #0F172A;
     color:#fff;
     justify-content:space-between;
     user-select: none;
@@ -21,7 +21,7 @@ nav{
 
 @media only screen and (max-width: 420px) {
     nav{
-        font-size: 15px;
+        font-size: 12px;
         gap: 15px;
     }
     header{

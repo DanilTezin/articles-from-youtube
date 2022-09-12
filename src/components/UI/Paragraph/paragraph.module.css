@@ -1,7 +1,9 @@
-p{
+.pan{
     font-size: 20px;
     font-weight: 300;
     text-align: start;
+    color: black;
+
 }
 
 span{
