@@ -1,6 +1,9 @@
 
 # Генерация СЕО статей из видео
-<a href="https://github.com/DanilTezin/articles-from-youtube/blob/main/LICENSE.md"><img alt="License: MIT" src="https://black.readthedocs.io/en/stable/_static/license.svg"></a>
+
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /><img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" /><img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" />
+
+
 
 
 https://daniltezin.github.io/articles-from-youtube/
@@ -18,6 +21,8 @@ https://daniltezin.github.io/articles-from-youtube/
 |redux|
 |react-router-dom|
 |@reduxjs/toolkit|
+
+<a href="https://github.com/DanilTezin/articles-from-youtube/blob/main/LICENSE.md"><img alt="License: MIT" src="https://black.readthedocs.io/en/stable/_static/license.svg"></a>
 
 
 ## Способ  с ключевыми словами
